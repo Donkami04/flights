@@ -2,8 +2,11 @@ version: '3'
 
 services:
 
-  postgres:
+  flights:
+    build: .
+    ports: "8080:8080"
 
+  postgres:
     image: postgres:latest
     restart: always
     environment:
@@ -16,7 +19,6 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
 
   pgadmin:
-
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
