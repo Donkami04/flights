@@ -2,10 +2,6 @@ version: '3'
 
 services:
 
-  flights:
-    build: .
-    ports: "8080:8080"
-
   postgres:
     image: postgres:latest
     restart: always
