@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flights</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'flightsapp/flights.css'%}">
+<body>
+    <div class="container">
+    <h2>ARRIVALS </h2>
+    <table>
+        <thead>
+          <tr>
+            <th>TIME</th>
+            <th>FROM</th>
+            <th>FLIGHT NO.</th>
+            <th>REMARKS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fly in arrivals %}
+          <tr>
+              <td>{{ fly.time }}</td>
+              <td>{{ fly.origin }}</td>
+              <td>{{ fly.flight_no }}</td>
+              <td>{{ fly.remarks }}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  
+  <br>
+  <h2>DEAPERTURES </h2>
+      <table class='table2'>
+        <thead>
+          <tr>
+            <th>TIME </th>
+            <th>TO </th>
+            <th>FLIGHT NO. </th>
+            <th>GATE. </th>
+            <th>REMARKS </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fly in deapertures %}
+          <tr>
+              <td>{{ fly.time }}</td>
+              <td>{{ fly.to }}</td>
+              <td>{{ fly.flight_no }}</td>
+              <td>{{ fly.gate }}</td>
+              <td>{{ fly.remarks }}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p ><a id='admin' href="{% url 'flightsapp:login' %}">Admin Site</a></p>
+    </div>
+</body>
+</html>
